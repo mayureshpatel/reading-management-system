@@ -1,0 +1,137 @@
+﻿<%@ Master Language="C#"
+    AutoEventWireup="true"
+    CodeBehind="Site.master.cs"
+    Inherits="reading_management_system.Site" %>
+
+<!DOCTYPE html>
+
+<!-- HTML DOCUMENT START -->
+<html>
+<!-- HEAD START -->
+<head runat="server">
+    <title>Reading Management System</title>
+    <asp:ContentPlaceHolder ID="PageHead" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <meta name="author" content="Mayuresh Patel" />
+    <meta name="description" content="This is a reading management system that functions like Goodreads.com but has my own look and feel" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+
+    <link href="/Styles/reset.css" rel="stylesheet" />
+    <link href="/Styles/all.css" rel="stylesheet" />
+    <link href="/Styles/main.css" rel="stylesheet" />
+
+    <script src="/Scripts/jquery-3.5.1.js"></script>
+    <script src="/Scripts/master-main.js"></script>
+</head> <!-- HEAD END -->
+<!-- BODY START -->
+<body>
+    <header>
+        <div class="logo">
+            <a href="/Default.aspx">RMS</a>
+        </div>
+
+        <nav>
+            <form id="nav-search-form">
+                <input type="text" name="searchTextBox" id="HiddenSearchTextBox" runat="server" placeholder="Search Books" />
+                <button type="reset" name="resetSearchButton" id="ResetSearchButton" runat="server">cancel</button>
+            </form>
+            <ul id="nav-ul">
+                <li>
+                    <a href="/Default.aspx">Home</a>
+                </li>
+                <li>
+                    <a href="/Pages/reading-lists.aspx">My Lists</a>
+                </li>
+                <li class="browse-list-item">
+                    <p id="BrowseButton">
+                        Browse
+                        <i class="fa fa-xs fa-angle-down"></i>
+                    </p>
+                    <div class="browse-dropdown" id="BrowseDropDown">
+                        <div class="browse-lists">
+                            <asp:SqlDataSource ID="BrowseListsSDS" runat="server">
+                            </asp:SqlDataSource>
+                            <p>Top Lists</p>
+                            <ul>
+                                <li>
+                                    <a id="BrowseListItem01" runat="server" href="#"></a>
+                                </li>
+                                <li>
+                                    <a id="BrowseListItem02" runat="server" href="#"></a>
+                                </li>
+                                <li>
+                                    <a id="BrowseListItem03" runat="server" href="#"></a>
+                                </li>
+                                <li>
+                                    <a id="BrowseListItem04" runat="server" href="#"></a>
+                                </li>
+                                <li>
+                                    <a id="BrowseListItem05" runat="server" href="#"></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="browse-genres">
+                            <asp:SqlDataSource ID="BrowseGenreSDS" runat="server">
+                            </asp:SqlDataSource>
+                            <p>Top Genres</p>
+                            <ul>
+                                <li>
+                                    <a id="BrowseGenreItem01" runat="server" href="#"></a>
+                                </li>
+                                <li>
+                                    <a id="BrowseGenreItem02" runat="server" href="#"></a>
+                                </li>
+                                <li>
+                                    <a id="BrowseGenreItem03" runat="server" href="#"></a>
+                                </li>
+                                <li>
+                                    <a id="BrowseGenreItem04" runat="server" href="#"></a>
+                                </li>
+                                <li>
+                                    <a id="BrowseGenreItem05" runat="server" href="#"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="/Pages/admin/add-book.aspx">Add Book</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="book-search-form">
+            <div class="book-search-bar">
+                <input type="text" name="searchTextBox" id="searchTextBox" runat="server" placeholder="Search Books" />
+                <button type="button" name="searchBookButton" id="searchBookButton" runat="server">
+                    <i class="fa fad fa-search"></i>
+                </button>
+            </div>
+        </div> <!-- NAV END -->
+    </header> <!-- HEADER END -->
+
+    <div class="body-content">
+        <main>
+            <div class="main-header">
+                <asp:ContentPlaceHolder ID="MainContentHeader" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="main-content">
+                <form id="form1" runat="server">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </form>
+            </div>
+        </main> <!-- MAIN END -->
+    </div>
+    <footer>
+        <p>
+            <span id="footer-copy">Copyright &copy;</span>
+            <span id="footer-year"></span>
+            <span id="footer-author">Mayuresh Patel</span>
+        </p>
+    </footer> <!-- FOOTER END -->
+</body> <!-- BODY END -->
+</html>
