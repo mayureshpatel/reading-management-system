@@ -67,13 +67,57 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="Webfonts\fa-brands-400.svg" />
+    <Content Include="Webfonts\fa-regular-400.svg" />
+    <Content Include="Webfonts\fa-solid-900.svg" />
+    <None Include="Scripts\jquery-3.5.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.5.1.js" />
+    <Content Include="Scripts\jquery-3.5.1.min.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
+    <Content Include="Scripts\master-main.js" />
+    <Content Include="Styles\all.css" />
+    <Content Include="Styles\main.css" />
+    <Content Include="Styles\Pages_Styles\add-book.css" />
+    <Content Include="Styles\Pages_Styles\reading-lists.css" />
+    <Content Include="Styles\reset.css" />
     <Content Include="Web.config" />
+    <Content Include="Webfonts\fa-brands-400.eot" />
+    <Content Include="Webfonts\fa-brands-400.ttf" />
+    <Content Include="Webfonts\fa-brands-400.woff" />
+    <Content Include="Webfonts\fa-brands-400.woff2" />
+    <Content Include="Webfonts\fa-regular-400.eot" />
+    <Content Include="Webfonts\fa-regular-400.ttf" />
+    <Content Include="Webfonts\fa-regular-400.woff" />
+    <Content Include="Webfonts\fa-regular-400.woff2" />
+    <Content Include="Webfonts\fa-solid-900.eot" />
+    <Content Include="Webfonts\fa-solid-900.ttf" />
+    <Content Include="Webfonts\fa-solid-900.woff" />
+    <Content Include="Webfonts\fa-solid-900.woff2" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Site.Master" />
+    <Content Include="Scripts\jquery-3.5.1.min.map" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -83,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Pages\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
