@@ -1,0 +1,695 @@
+﻿/*
+    =================================================================
+
+    FONTS
+
+    =================================================================
+*/
+@font-face {
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+    font-family: "Montserrat", sans serif;
+}
+
+/*
+    =================================================================
+
+    PAGE GRID STYLING
+
+    =================================================================
+*/
+/* || Main Grid || */
+body {
+    display: grid;
+
+    width: 100%;
+    margin: 0 auto;
+    min-height: 100vh;
+
+    grid-template-rows: 60px 1fr 45px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "header"
+        "body-content"
+        "footer";
+
+    font-family: Montserrat, sans-serif;
+}
+
+header {
+    display: grid;
+    position: fixed;
+
+    grid-area: header;
+    grid-template-rows: 1fr;
+    grid-template-columns: 250px 2fr 1fr;
+    grid-template-areas: "logo nav search-bar";
+    z-index: 99;
+
+    width: 100%;
+    height: 60px;
+    background-color: #f4f1ea;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.body-content {
+    grid-area: body-content;
+
+    width: 100%;
+    height: 100%;
+    
+    background-color: #f9f7f4;
+}
+
+
+main {
+    grid-area: main;
+}
+
+footer {
+    grid-area: footer;
+
+    background-color: #f4f1ea;
+}
+
+/* || Header Grid || */
+.logo {
+    grid-area: logo;
+}
+
+nav {
+    grid-area: nav;
+}
+
+.book-search-form {
+    grid-area: search-bar;
+}
+
+/*
+    =================================================================
+
+    HEADER LOGO STYLING
+
+    =================================================================
+*/
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo a {
+    width: 75%;
+    height:75%;
+
+    text-decoration: none;
+    text-align: center;
+    font-size: 30px;
+    text-shadow: 0px 0px 1px #000000;
+    color: #382110;
+}
+
+/*
+    =================================================================
+
+    HEADER NAV STYLING
+
+    =================================================================
+*/
+/*
+    NAV
+*/
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-grow: 1;
+
+    height: 100%;
+    margin: 0px;
+}
+
+nav ul li {
+    height: 100%;
+}
+
+nav ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    padding: 0px 10px;
+
+    font-size: 18px;
+    text-decoration: none;
+    color: #382110;
+}
+
+nav ul li p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    padding: 0px 10px;
+    margin: 0px;
+    
+    font-size: 18px;
+    text-decoration: none;
+    color: #382110;
+}
+
+.browse-list-item {
+    position: relative;
+}
+
+.browse-dropdown {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: -135%;
+
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+        "lists genres";
+
+    width: 350px;
+    height: 280px;
+    box-shadow: 0px 0px 2px black;
+}
+
+.browse-dropdown p {
+    padding: 5px 5px 5px 5px;
+    margin: 0px;
+    height: 10%;
+
+    text-align: center;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+.browse-dropdown p:hover {
+    background-color: inherit;
+
+    color: inherit;
+
+    cursor: default;
+}
+
+.browse-dropdown ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    height: 90%;
+}
+
+.browse-dropdown ul li {
+    width: 95%;
+    height: 35px;
+    margin-bottom: 10px;
+}
+
+.browse-dropdown ul li a {
+    font-size: 15px;
+}
+
+.browse-dropdown ul li a:hover {
+    background-color: #e4e4e4;
+    
+    color: black;
+    text-decoration: underline;
+}
+
+.browse-lists {
+    grid-area: lists;
+
+    background-color: #fefefe;
+    border-right: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.browse-genres {
+    grid-area: genres;
+
+    background-color: #cdcdcd;
+    border-left: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.browse-list-item i {
+    padding: 0px 3px;
+}
+
+nav ul li a:hover {
+    background-color: #382110;
+    color: white;
+}
+
+nav ul li p:hover {
+    background-color: #382110;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+/*
+    Search Form
+*/
+nav form {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+    width: 85%;
+}
+
+#HiddenSearchTextBox {
+    width: 100%;
+    padding: 3px 0px 3px 5px;
+    box-shadow: 0px 0px 1px black;
+    border: none;
+    
+    font-size: 18px;
+}
+
+#HiddenSearchTextBox:focus {
+    outline: none;
+    box-shadow: 0px 0px 2px black;
+}
+
+#ResetSearchButton {
+    position: absolute;
+    right: 5px;
+
+    background-color: white;
+    border: none;
+
+    color: blue;
+}
+
+#ResetSearchButton:hover {
+    cursor: pointer;
+}
+
+#ResetSearchButton:focus {
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.book-search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.book-search-bar {
+    position: relative;
+
+    width: 90%;
+    margin: 0 auto;
+
+    font-size: 24px;
+}
+
+.book-search-bar #searchTextBox {
+    width: 100%;
+    padding: 3px 0px 3px 5px;
+    border: none;
+    box-shadow: 0px 0px 1px black;
+
+    font-size: 18px;
+}
+
+.book-search-bar #searchTextBox:focus {
+    outline: none;
+    box-shadow: 0px 0px 2px black;
+}
+
+.book-search-bar #searchBookButton {
+    position: absolute;
+    right: 0px;
+    bottom: 5px;
+    right: 10px;
+
+    background-color: white;
+    border: none;
+    
+    font-size: 16px;
+    color: lightgray;
+}
+
+.book-search-bar #searchBookButton {
+    cursor: pointer;
+}
+
+/*
+    =================================================================
+
+    MAIN STYLING
+
+    =================================================================
+*/
+main {
+    margin: 0px;
+}
+
+.main-header {
+    margin: 0px;
+}
+
+.main-header h1 {
+    margin: 15px 0px;
+}
+
+.main-content {
+    margin: 20px 0px;
+    padding: 0px 30px;
+}
+
+/* || Home Page: All Books Table || */
+.table-container {
+    overflow-x: auto;
+}
+
+.all-books-table th, .all-books-table td {
+    padding: 10px;
+    min-width: 150px;
+
+    font-size: 16px;
+}
+
+.all-books-table th {
+    background-color: #382110;
+
+    color: white;
+}
+
+.all-books-table th:hover {
+    cursor: default;
+}
+
+.all-books-table tr:hover {
+    cursor: pointer;
+
+    background-color: #e4e4e4;
+}
+
+.all-books-table tr:first-child {
+    background-color: pink;
+}
+
+.col-hidden {
+    display: none;
+}
+
+/* || Home Page: Modal Styling || */
+.modal {
+    display: none;
+    position: fixed;
+    top: 15%;
+    left: 15%;
+    overflow-y: auto;
+    z-index: 100;
+
+    width: 70%;
+    max-height: 80vh;
+    box-shadow: 0px 0px 10px black;
+    background-color: white;
+}
+
+.modal hr {
+    height: 1px;
+    width: 90%;
+    margin-right: auto;
+    background-color: black;
+    border: none;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 15px 0px 15px;
+}
+
+.mh-label-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.mh-label-header h1 {
+    margin: 0px;
+}
+
+.modal-header input {
+    padding: 10px;
+    background-color: transparent;
+    width: 50px;
+
+    border: none;
+    border-radius: 30px;
+
+    font-size: 32px;
+}
+
+.modal-header input:focus {
+    outline: none;
+}
+
+.modal-header input:hover {
+    text-shadow: 0px 0px 1px black;
+
+    cursor: pointer;
+}
+
+.modal-content {
+    padding: 0px 15px;
+}
+
+.modal-content h5, .modal-content h3, .modal-content p {
+    margin: 0px;
+}
+
+.mc-book-meta {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    padding: 0px 0px 15px 0px;
+}
+
+.smc-isbn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.smc-pagecount {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mc-author {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    padding: 15px 0px;
+}
+
+.mc-genre {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    padding: 15px 0px;
+}
+
+.mc-summary {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    padding: 15px 0px;
+}
+
+.modal-footer {
+    padding: 15px;
+}
+
+.mf-selectbutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mf-selectbutton select {
+    border: 1px solid #777;
+    margin-right: 5px;
+    border-radius: 5px;
+    padding: 5px 5px;
+    background-color: white;
+    
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.mf-selectbutton input {
+    border: 1px solid #777;
+    padding: 5px 5px;
+    
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.mf-selectbutton a {
+    padding: 2px 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+
+    color: black;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.mf-selectbutton a:hover {
+    background-color: #382110;
+
+    color: white;
+}
+
+.error-small {
+    color: red;
+}
+
+.success-small {
+    color: green;
+}
+
+/*
+    =================================================================
+
+    FOOTER STYLING
+
+    =================================================================
+*/
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    padding: 3px 5px;
+
+    font-size: 16px;
+    color: rgba(0, 0, 0, .45);
+}
+
+/*
+=================================================================
+
+MEDIA QUERIES
+
+=================================================================
+*/
+@media screen and (max-width: 1200px) {
+    
+}
+
+@media screen and (max-width: 1024px) {
+    /* || Remove the side bar || */
+    body {
+        grid-template-areas:
+            "header"
+            "body-content"
+            "footer";
+    }
+
+    .body-content {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "main main";
+    }
+}
+
+@media screen and (max-width: 900px) {
+    /* || Change the header grid || */
+    body {
+        grid-template-rows: 120px 1fr 45px;
+    }
+
+    .body-content {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "main main";
+    }
+
+    header {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 250px 1fr;
+        grid-template-areas: 
+            "logo search-bar"
+            "nav nav";
+
+        height: 120px;
+    }
+
+    /* || Nav styling || */
+    nav {
+        border-top: 1px solid rgba(0, 0, 0, 0.15);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    }
+
+    nav ul {
+        justify-content: space-evenly;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 576px) {
+    /* || Change Header Grid || */
+    header {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 10fr;
+        grid-template-areas: 
+            "search-bar logo"
+            "nav nav";
+    }
+
+    /* || Search Bar || */
+
+    .book-search-bar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        position: relative;
+    }
+
+    .book-search-bar #searchBookButton {
+        position: static;
+        background-color: #f4f1ea;
+        font-size: 28px;
+        color: #000000;
+    }
+
+    .book-search-bar #searchTextBox {
+        display: none;
+    }
+}
