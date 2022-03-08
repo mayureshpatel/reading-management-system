@@ -308,15 +308,15 @@ nav form {
 
 .book-search-form {
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
 }
 
 .book-search-bar {
     position: relative;
 
-    width: 90%;
-    margin: 0 auto;
+    width: 100%;
+    margin: 0 20px;
 
     font-size: 24px;
 }
@@ -650,6 +650,10 @@ MEDIA QUERIES
 
     nav ul {
         justify-content: space-evenly;
+    }
+
+    .book-search-bar {
+        width: 60%;
     }
 }
 

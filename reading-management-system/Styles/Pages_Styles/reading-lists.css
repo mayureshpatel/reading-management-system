@@ -90,7 +90,7 @@ MEDIA QUERIES
         display: grid;
 
         grid-template-rows: 1fr 1fr;
-        grid-template-columns: 300px 1fr;
+        grid-template-columns: 240px 1fr;
         grid-template-areas:
             "label label"
             "ddl button";
