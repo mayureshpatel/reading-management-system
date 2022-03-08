@@ -67,12 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\ReadingDB.mdf" />
-    <Content Include="App_Data\ReadingDB_log.ldf">
-      <DependentUpon>ReadingDB.mdf</DependentUpon>
-    </Content>
     <Content Include="Default.aspx" />
-    <Content Include="Pages\reading-lists.aspx" />
     <Content Include="Webfonts\fa-brands-400.svg" />
     <Content Include="Webfonts\fa-regular-400.svg" />
     <Content Include="Webfonts\fa-solid-900.svg" />
@@ -109,13 +104,6 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\reading-lists.aspx.cs">
-      <DependentUpon>reading-lists.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\reading-lists.aspx.designer.cs">
-      <DependentUpon>reading-lists.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -137,7 +125,10 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Pages\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

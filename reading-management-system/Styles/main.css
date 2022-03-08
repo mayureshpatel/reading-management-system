@@ -62,8 +62,7 @@ header {
 
 
 main {
-    width: 75%;
-    margin: 0 auto;
+    grid-area: main;
 }
 
 footer {
@@ -359,6 +358,10 @@ nav form {
 
     =================================================================
 */
+main {
+    margin: 0px;
+}
+
 .main-header {
     margin: 0px;
 }
@@ -628,8 +631,10 @@ MEDIA QUERIES
         grid-template-rows: 120px 1fr 45px;
     }
 
-    main {
-        width: 95%;
+    .body-content {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "main main";
     }
 
     header {

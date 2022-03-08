@@ -43,8 +43,6 @@
     border-radius: 5px;
     background-color: white;
 
-    width: 120px;
-
     color: #382110;
     font-size: 16px;
 }
@@ -75,46 +73,4 @@
 
 .reading-lists-table tr:hover {
     background-color: #e4e4e4;
-}
-
-/*
-=================================================================
-
-MEDIA QUERIES
-
-=================================================================
-*/
-@media screen and (max-width: 900px) {
-    /* || Change the reading list select content || */
-    .rl-select-content {
-        display: grid;
-
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: 300px 1fr;
-        grid-template-areas:
-            "label label"
-            "ddl button";
-
-        height:100%;
-        width: 70%;
-    }
-
-    .rl-select-content span {
-        grid-area: label;
-    }
-
-    .rl-select-content select {
-        grid-area: ddl;
-        width: 225px;
-    }
-
-    .rl-select-content input[type=text] {
-        grid-area: ddl;
-        top: 3px;
-        left: 3px;
-    }
-
-    .rl-select-content input[type=button] {
-        grid-area: button;
-    }
 }
