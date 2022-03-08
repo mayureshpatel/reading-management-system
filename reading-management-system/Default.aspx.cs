@@ -247,34 +247,77 @@ namespace reading_management_system
                 {
                     if (!(readingListsDDL.SelectedValue == "0"))
                     {
-                        // Add the parameters
-                        myCommand.Parameters.AddWithValue("readingListID", readingListsDDL.SelectedValue);
-                        myCommand.Parameters.AddWithValue("bookID", selectedBookIDTextBox.Text);
-
-                        // Open the connection
-                        myConnection.Open();
-
-                        // Execute the Command
-                        int rowsAffected = myCommand.ExecuteNonQuery();
-
-                        // Close the connection
-                        myConnection.Close();
-
-                        // Display the results
-                        if (rowsAffected > 0)
+                        // If the reading list already has the specified book, then don't add it
+                        if(!IsBookInReadingList(readingListsDDL.SelectedValue, selectedBookIDTextBox.Text))
                         {
-                            AddToListFeedbackLiteral.Text = "<small class='success-small'>Successfully Added Book To List</small>";
+                            // Add the parameters
+                            myCommand.Parameters.AddWithValue("readingListID", readingListsDDL.SelectedValue);
+                            myCommand.Parameters.AddWithValue("bookID", selectedBookIDTextBox.Text);
+                            
+                            // Open the connection
+                            myConnection.Open();
+                                   
+                            // Execute the Command
+                            int rowsAffected = myCommand.ExecuteNonQuery();
+                            
+                            // Close the connection
+                            myConnection.Close();
+                            
+                            // Display the results
+                            if (rowsAffected > 0)
+                            {
+                                AddToListFeedbackLiteral.Text = "<small class='success-small'>Successfully Added Book To List</small>";
+                            }
+                            else
+                            {
+                                AddToListFeedbackLiteral.Text = "<small class='error-small'>Could Not Add Book To List</small>";
+                            }
                         }
                         else
                         {
-                            AddToListFeedbackLiteral.Text = "<small class='error-small'>Could Not Add Book To List</small>";
+                            AddToListFeedbackLiteral.Text = "<small class='error-small'>Book is already in that list</small>";
                         }
                     }
                     else
                     {
                         AddToListFeedbackLiteral.Text = "<small class='error-small'>Please Select a List</small>";
                     }
+
+                    // Reset the reading list dropdown list selected value to 0
+                    readingListsDDL.SelectedValue = "0";
                 }
+            }
+        }
+
+        protected bool IsBookInReadingList(String readingListID, String bookID)
+        {
+            String selectCommand = "SELECT COUNT([ReadingListAffilsID]) FROM [ReadingListAffiliations] WHERE FK_ReadingListID = @readingListID AND FK_BookID = @bookID";
+            int recordCount = 1;
+
+            // Initialize the sql connection
+            using (SqlConnection myConnection = new SqlConnection(myConnectionString))
+            {
+                // Initialize the sql command
+                using (SqlCommand myCommand = new SqlCommand(selectCommand, myConnection))
+                {
+                    // Add the parameters
+                    myCommand.Parameters.AddWithValue("readingListID", readingListID);
+                    myCommand.Parameters.AddWithValue("bookID", bookID);
+
+                    // Open the connection, execute the query and then close the connection
+                    myConnection.Open();
+                    recordCount = (int)myCommand.ExecuteScalar();
+                    myConnection.Close();
+                }
+            }
+
+            if(recordCount >= 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

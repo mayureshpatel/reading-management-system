@@ -72,6 +72,7 @@
       <DependentUpon>ReadingDB.mdf</DependentUpon>
     </Content>
     <Content Include="Default.aspx" />
+    <Content Include="Pages\admin\add-book.aspx" />
     <Content Include="Pages\reading-lists.aspx" />
     <Content Include="Webfonts\fa-brands-400.svg" />
     <Content Include="Webfonts\fa-regular-400.svg" />
@@ -108,6 +109,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\admin\add-book.aspx.cs">
+      <DependentUpon>add-book.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\admin\add-book.aspx.designer.cs">
+      <DependentUpon>add-book.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\reading-lists.aspx.cs">
       <DependentUpon>reading-lists.aspx</DependentUpon>
