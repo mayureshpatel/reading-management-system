@@ -26,7 +26,6 @@
 
 
 ## Features
-List the ready features here:
 - Relational database to store and map various data such as book, author, genre, and reading list information
 - Ability to create, edit, and view reading lists
 - Ability to add new books into the database (a feature intended for admins)
