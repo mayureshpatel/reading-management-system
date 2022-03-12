@@ -33,7 +33,14 @@
 
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
+### Home Page
+> ![index-page](https://user-images.githubusercontent.com/76574977/158034163-465f2d6f-8eec-4797-a561-326ffd0326e4.png)
+
+### Reading List Page
+> ![reading-lists](https://user-images.githubusercontent.com/76574977/158034239-ff9cf8ac-0d78-4471-8e91-8dba7b1b8626.png)
+
+### Adding a new book to the database
+> ![new-book](https://user-images.githubusercontent.com/76574977/158034258-d914ad1b-2bf8-487b-a97e-f2d8cc8927cf.png)
 <!-- If you have screenshots you'd like to share, include them here. -->
 
 
